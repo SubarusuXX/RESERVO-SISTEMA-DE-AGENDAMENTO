@@ -11,8 +11,14 @@
     "start": "nodemon index.js"
   },
   "dependencies": {
+    "aws-sdk": "^2.1693.0",
+    "busboy": "^1.6.0",
+    "busboy-body-parser": "^0.3.2",
+    "connect-busboy": "^1.0.0",
     "express": "^5.2.1",
+    "moongose": "^1.0.0",
     "morgan": "^1.10.1",
-    "nodemon": "^3.1.11"
+    "nodemon": "^3.1.11",
+    "yarn": "^1.22.22"
   }
 }
