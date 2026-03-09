@@ -1,72 +1,69 @@
 const express = require('express');
 const router = express.Router();
-const Busboy = require('busboy');
-//const testeaws = require('../services/testeaws');   
+const multer = require("multer");
+const upload = multer({ storage: multer.memoryStorage() });
+const aws = require('../services/aws');   
 const Arquivo = require('../models/arquivo');
 const Servico = require('../models/servico');
 
 //rota recebe Formdata
-router.post('/', async (req, res) => {
-    let busboy = new Busboy({ headers: req.headers}); //toda a informacao do arquivo vem no header da requisicao
-    busboy.on('finish', async () => {
-        try {
-            const {salaoId, servico} = req.body; 
-            let errors = [];
-            let arquivos = [];
+router.post('/', upload.array("files"), async (req, res) => {
 
-            /*
-                {
-                    "1213213232131231": {....}
-                    "1213213232131231": {....}
-                    "1213213232131231": {....}
-                }
-            */
-                          
-            if (req.files && Object.keys(req.files)> 0) {
-            for (let key of Object.keys(req.files)) {
-                const file = req.files[key];
+  try {
 
-                //1231231.jpg
-                const nameParts = file.name.split('.'); //pega o nome do arquivo e separa por ponto, para pegar a extensao
-                const fileName = `d${new Date().getTime()}.${
-                    nameParts[nameParts.length - 1]
-                }`; 
-                const path = `servicos/${salaoId}/${fileName}`;
+    const { salaoId, servico } = req.body;
 
-                const response = await testeaws.uploadToS3(file, path);
+    let errors = [];
+    let arquivos = [];
 
-                if (response.error) {
-                    errors.push ({error : true, message: response.message});
-                } else {
-                    arquivos.push(path)
-                }
-              }
-            }
+    if (req.files && req.files.length > 0) {
 
-            if (errors.length > 0) {
-                return res.json(errors[0]);
-                return false;
-            }
+      for (let file of req.files) {
 
-            //criar o serviço
+        const nameParts = file.originalname.split('.');
 
-            let jsonServico = JSON.parse(servico);
-            const servicoCadastrado = await Servico(jsonServico).save();
+        const fileName = `d${new Date().getTime()}.${
+          nameParts[nameParts.length - 1]
+        }`;
 
-            //criar arquivo
-            arquivos = arquivos.map((arquivo) => ({
-                referenciaId: servicoCadastrado._id,
-                model: 'Servico',
-                caminho: arquivo,
-            }));
+        const path = `servicos/${salaoId}/${fileName}`;
 
-            await Arquivo.insertMany(arquivos);
+        const response = await aws.uploadToS3(file, path);
 
-            res.json({servico: servicoCadastrado, arquivos});
-        }   catch (err) {
-            res.json({ error: true, message: err.message });
+        if (response.error) {
+          errors.push({ error: true, message: response.message });
+        } else {
+          arquivos.push(path);
         }
-    }); 
-    req.pipe(busboy);
+
+      }
+
+    }
+    
+    if (errors.length > 0) {
+      return res.json(errors[0]);
+    }
+    
+    let jsonServico = JSON.parse(servico);
+
+    const servicoCadastrado = await Servico(jsonServico).save();
+    
+    arquivos = arquivos.map((arquivo) => ({
+      referenciaId: servicoCadastrado._id,
+      model: 'Servico',
+      caminho: arquivo
+    }));
+
+    await Arquivo.insertMany(arquivos);
+
+    res.json({ servico: servicoCadastrado, arquivos });
+
+  } catch (err) {
+
+    res.json({ error: true, message: err.message });
+
+  }
+
 });
+
 module.exports = router;

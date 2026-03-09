@@ -3,13 +3,10 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const cors = require('cors');
-const busboy = require('connect-busboy');
-const busboyBodyParser = require('busboy-body-parser');
 require('./database');
 
 // Middleware de upload de arquivos
-app.use(busboy());
-app.use(busboyBodyParser());
+
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
