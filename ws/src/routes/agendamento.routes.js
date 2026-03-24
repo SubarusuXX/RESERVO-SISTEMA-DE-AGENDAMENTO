@@ -10,10 +10,9 @@ const Cliente = require('../models/cliente');
 const Salao = require('../models/salao');
 const Servico = require('../models/servico');
 const Colaborador = require('../models/colaborador');
-const agendamento = require('../models/agendamento');
 const Agendamento = require('../models/agendamento');
 const Horario = require('../models/horario');
-
+const horario = require('../models/horario');
 
 router.post('/', async (req, res) => {
 
@@ -134,12 +133,13 @@ router.post ('/filter', async (req, res) =>{
           { path: 'clienteId', select: 'nome'},
         ]);
 
-        res.json({error: false , agendamentos})
-
+        res.json({error: false , agendamentos});
     } catch (err){
         res.json({error: true, message: err.message})
     }
 })
+
+
 
 router.post ('/dias-disponiveis', async (req, res)=>{
   try{
@@ -148,6 +148,7 @@ router.post ('/dias-disponiveis', async (req, res)=>{
     const servico = await Servico.findById(servicoId).select('duracao');
 
     let agenda = [];
+    let colaboradores = []
     let lastDay = moment(data);
 
     //duracao do servico
@@ -156,15 +157,15 @@ router.post ('/dias-disponiveis', async (req, res)=>{
     );
 
     const servicoSlots = util.sliceMinutes(
-      servico.duracao,
-      moment(servico.duracao).add(servicoMinutos,"minutes"),
+      servico.duracao, //1:30
+      moment(servico.duracao).add(servicoMinutos, 'minutes'), //3:00
       util.SLOT_DURATION,
     ).length;
 
     //procura nos proximos 365 dias
     //ate a agenda conter 7 dias disponiveis
     for (let i = 0; i <= 365 && agenda.length <= 7; i++){
-      const espacosValidos = horarios.filter(horario => {
+      const espacosValidos = horarios.filter((horario) => {
         //verificar o dia da semana
         const diaSemanDisponivel = horario.dias.includes(moment(lastDay).day());
 
@@ -177,9 +178,6 @@ router.post ('/dias-disponiveis', async (req, res)=>{
       /*
       todos os colaboradores disponiveis no dia e seus horarios   
       */
-
-      
-
 
       if (espacosValidos.length > 0 ){
         let todosHorariosDia = {};
@@ -202,33 +200,30 @@ router.post ('/dias-disponiveis', async (req, res)=>{
           }
         }
 
-        // a ocupacao de cada especialisra no dia
-        for (let colaboradorId of Object.keys(todosHorariosDia)){
+        // ocupacao de cada especialisra no dia
+        for (let colaboradorId of Object.keys(todosHorariosDia)) {
           //recuperar agendamentos
-          const agendamentos = await agendamento.find({
+          const agendamentos = await Agendamento.find({
             colaboradorId,
             data:{
-              $gte:moment(lastDay).startOf('day'),
-              $lte:moment(lastDay).endOf('day'),
+              $gte: moment(lastDay).startOf('day'),
+              $lte: moment(lastDay).endOf('day'),
             },
           })
-          
             .select('data servicoId -_id')
             .populate('servicoId', 'duracao')
           
           //recuperar horarios agendados
-          let horariosOcupados = agendamentos.map((agendamento) =>({
-            inicio: moment(agendamento.data).format('HH:mm'),
+          let horariosOcupados = agendamentos.map((agendamento) => ({
+            inicio: moment(agendamento.data),
             final: moment(agendamento.data).add(
               util.hourToMinutes(
-              moment(agendamento.servicoId.duracao).format('HH:mm')
+                moment(agendamento.servicoId.duracao).format('HH:mm')
               ),
               'minutes'
-            )
-            .format('HH:mm'),
+            ),
           }));
-
-
+          
             //recuperar todos os slots entre os agendamentos
             horariosOcupados =horariosOcupados
             .map((horario) => 
@@ -239,40 +234,72 @@ router.post ('/dias-disponiveis', async (req, res)=>{
               )
           )
           .flat();
+
+
           //removendo todos os horarios/ slots ocupados
-          let horarioLivres = util
-          .splitByValue(
-          todosHorariosDia[colaboradorId].map((horarioLivre) =>{
-            return horariosOcupados.includes(horarioLivre) 
+          let horariosLivres = util.splitByValue(
+            todosHorariosDia[colaboradorId].map((horarioLivre) => {
+              return horariosOcupados.includes(horarioLivre) 
             ? '-'
             : horarioLivre;
-           }),
-          ).filter(space => space.length > 0);
+           }), 
+           '-'
+          )
+          .filter((space) => space.length > 0);
 
-          //verificando se existe espaço suficiente no slot
-          horarioLivres = horarioLivres.filter(
-            horarios => horarios.length >= servicoSlots
+          //verificando se existe espaco suficiente no SLOT
+          horariosLivres = horariosLivres.filter(
+            (horarios) => horarios.length >= servicoSlots
           );
-          todosHorariosDia[colaboradorId] = horarioLivres;
+
+          //verificando se os horarios dentro do SLOT
+          //tem a constinuidade necessaria
+          horariosLivres = horariosLivres.map((slot) => slot.filter((horario, index) => slot.length - index >= servicoSlots)
+        ).flat();
+
+        //formatando os horarios de 2 em 2 
+        horariosLivres = _.chunk(horariosLivres, 2);
+
+        //remover colaborador caso nao tenha nenhum espaço
+        if (horariosLivres.length == 0){
+          todosHorariosDia = _.omit(todosHorariosDia, colaboradorId);
+        } else {
+          todosHorariosDia[colaboradorId] = horariosLivres
         }
-
-
-
-        agenda.push({
-          [lastDay.format('YYYY-MM-DD')]: todosHorariosDia,
-        });
       }
 
+      //verificar se tem especialista disponivel naquele dia
+      const totalEspecialistas = Object.keys (todosHorariosDia).length
+
+        if (totalEspecialistas > 0){
+          colaboradores.push(Object.keys(todosHorariosDia))
+          agenda.push({
+            [lastDay.format('YYYY-MM-DD')]: todosHorariosDia,
+          });
+        }    
+      }
       lastDay = lastDay.add (1, 'day');
     }
+    //recupenrando dados dos colaboradores
+    colaboradores = _.uniq(colaboradores.flat())
+
+    colaboradores = await Colaborador.find({
+      _id : { $in: colaboradores},
+    }).select('nome foto');
+
+    colaboradores = colaboradores.map((c) => ({
+      ...c._doc,
+      nome: c.nome.split(' ')[0],
+    }))
 
     res.json({
       error: false,
+      colaboradores,
       agenda,
     });
   }catch (err){
     res.json({error: true, message: err.message});
   }
-})
+});
 
 module.exports = router;
