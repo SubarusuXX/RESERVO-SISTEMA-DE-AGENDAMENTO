@@ -139,8 +139,6 @@ router.post ('/filter', async (req, res) =>{
     }
 })
 
-
-
 router.post ('/dias-disponiveis', async (req, res)=>{
   try{
     const { data, salaoId, servicoId } = req.body;

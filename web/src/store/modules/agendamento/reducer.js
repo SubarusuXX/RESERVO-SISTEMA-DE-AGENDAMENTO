@@ -1,20 +1,15 @@
-import types from './types';
-import { produce } from 'immer';    
-
-
 const INITIAL_STATE = {
     agendamentos: [],
 };
 
-function agedamento(state = INITIAL_STATE, action) {
+function agendamento(state = INITIAL_STATE, action) {
     switch (action.type) {
-        case  types.UPDATE_AGENDAMENTOS: {
-             return produce(state, (draft) => {
-                draft.agendamentos = action.agendamentos;
-        });
-    }
+        case '@agendamento/ALL': { 
+            //
+        }
         default:
             return state;
     }
 }
-export default agedamento;
+
+export default agendamento;

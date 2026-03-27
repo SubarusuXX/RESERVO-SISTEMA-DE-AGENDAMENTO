@@ -1,26 +1,26 @@
-import logo from '../../assets/Logo-Salao.png';
-import {Link, withRouter} from 'react-router-dom';
+import { Link, useLocation} from 'react-router-dom'
+import logo from '../../assets/logo.png';
 
-
-const Sidebar    = () => {
+const Sidebar = () => {
+    const location = useLocation();
     return (
-        <sidebar className='col-2 h-100'>
-            <img src={logo}  className='image-fluid px3 py-4'/>
+        <sidebar className = 'col-2 h-100'>
+            <img src={logo} className = 'img-fluid px-3 py-4'/>
             <ul className='p-0 m-0'>
-                <li>
-                    <Link to="/" className={location.pathname ==='/' ? 'active' : ''}></Link>
-                    <span className="mdi mdi-calendar-check "></span>
-                    <text className='ml-2'>Agendamento</text>
+                <li>    
+                     <Link to='/' className={location.pathname === '/' ? 'active' : ''}>
+                    <span className='mdi mdi-calendar-check'></span>
+                    <text>Agendamentos</text>
+                    </Link>    
                 </li>
                 <li>
-                    <Link to="/clientes" className={location.pathname ==='/clientes' ? 'active' : ''}></Link>
-                    <span className="mdi mdi-account-multiple "></span>
-                    <text className='ml-2'>Clientes</text>
+                    <Link to='/clientes' className={location.pathname === '/clientes' ? 'active' : ''}>
+                    <span className='mdi mdi-account-multiple'></span>
+                    <text>Clientes</text>
+                    </Link>
                 </li>
             </ul>
-            <h1>Sidebar</h1>
         </sidebar>
     );
 };
-
-export default withRouter(Sidebar);
+export default Sidebar;
