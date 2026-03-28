@@ -1,0 +1,1987 @@
+{
+	"log": {
+		"version": "1.2",
+		"creator": {
+			"name": "Insomnia REST Client",
+			"version": "insomnia.desktop.app:v12.4.0"
+		},
+		"entries": [
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 310.13800000000003,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8000/agendamento/filter",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.4.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"salaoId\": \"69a5e773ec5b8f6dcebad6b7\",\n\t\"periodo\":{\n\t\t\"inicio\":\"2026-03-20\",\n\t\t\"final\":\"2026-03-30\"\n\t}\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "1112"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"458-FqXb1pcQU70c8VsdyNFElKeK6k4\""
+						},
+						{
+							"name": "Date",
+							"value": "Fri, 27 Mar 2026 00:09:50 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 1112,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false,\"agendamentos\":[{\"_id\":\"69b854393d9f76153888229e\",\"salaoId\":\"69a5e773ec5b8f6dcebad6b7\",\"clienteId\":{\"_id\":\"69b73e1f6549335941f6aeb0\",\"nome\":\"Cliente teste1 \"},\"servicoId\":{\"_id\":\"69b04d83d1a950ebcf76ce90\",\"titulo\":\"Servico teste alterado\",\"duracao\":\"2026-03-18T05:30:26.398Z\"},\"colaboradorId\":{\"_id\":\"69b35514336bccf8fb76e253\",\"nome\":\"Robson Jalin\"},\"data\":\"2026-03-21T15:00:00.000Z\",\"valor\":50,\"comissao\":5,\"pagamento\":{\"metodo\":\"LOCAL\",\"status\":\"PENDENTE\",\"_id\":\"69b854393d9f76153888229f\"},\"status\":\"A\",\"dataCadastro\":\"2021-03-21T19:04:25.125Z\",\"__v\":0},{\"_id\":\"69b87a2269971e00811b7d8f\",\"salaoId\":\"69a5e773ec5b8f6dcebad6b7\",\"clienteId\":{\"_id\":\"69b73e1f6549335941f6aeb0\",\"nome\":\"Cliente teste1 \"},\"servicoId\":{\"_id\":\"69b04d83d1a950ebcf76ce90\",\"titulo\":\"Servico teste alterado\",\"duracao\":\"2026-03-18T05:30:26.398Z\"},\"colaboradorId\":{\"_id\":\"69b35514336bccf8fb76e253\",\"nome\":\"Robson Jalin\"},\"data\":\"2026-03-21T08:30:00.000Z\",\"valor\":50,\"comissao\":5,\"pagamento\":{\"metodo\":\"LOCAL\",\"status\":\"PENDENTE\",\"_id\":\"69b87a2269971e00811b7d90\"},\"status\":\"A\",\"dataCadastro\":\"2021-03-16T21:46:10.211Z\",\"__v\":0}]}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 310.13800000000003,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "FILTER"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 1926.976,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8000/agendamento/dias-disponiveis",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.4.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"salaoId\": \"69a5e773ec5b8f6dcebad6b7\",\n\t\"servicoId\": \"69b04d83d1a950ebcf76ce90\",\n\t\t\"data\":\"2026-03-19\"\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "1957"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"7a5-N0khRlaEXKDr1RYEAec4t82WdkI\""
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 22 Mar 2026 00:01:08 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 1957,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false,\"colaboradores\":[{\"_id\":\"69b35514336bccf8fb76e253\",\"nome\":\"Robson\",\"foto\":\"https://i.imgflip.com/2/28vcbz.jpg\"}],\"agenda\":[{\"2026-03-21\":{\"69b35514336bccf8fb76e253\":[[\"14:30\",\"15:00\"],[\"15:30\",\"16:00\"],[\"16:30\",\"17:00\"],[\"17:30\"]]}},{\"2026-03-22\":{\"69b35514336bccf8fb76e253\":[[\"10:00\",\"10:30\"],[\"11:00\",\"11:30\"],[\"12:00\",\"12:30\"],[\"13:00\",\"13:30\"],[\"14:00\",\"14:30\"],[\"15:00\",\"15:30\"],[\"16:00\",\"16:30\"],[\"17:00\",\"17:30\"],[\"18:00\",\"18:30\"],[\"19:00\",\"19:30\"],[\"06:00\",\"06:30\"]]}},{\"2026-03-23\":{\"69b35514336bccf8fb76e253\":[[\"10:00\",\"10:30\"],[\"11:00\",\"11:30\"],[\"12:00\",\"12:30\"],[\"13:00\",\"13:30\"],[\"14:00\",\"14:30\"],[\"15:00\",\"15:30\"],[\"16:00\",\"16:30\"],[\"17:00\",\"17:30\"],[\"18:00\",\"18:30\"],[\"19:00\",\"19:30\"],[\"06:00\",\"06:30\"]]}},{\"2026-03-24\":{\"69b35514336bccf8fb76e253\":[[\"10:00\",\"10:30\"],[\"11:00\",\"11:30\"],[\"12:00\",\"12:30\"],[\"13:00\",\"13:30\"],[\"14:00\",\"14:30\"],[\"15:00\",\"15:30\"],[\"16:00\",\"16:30\"],[\"17:00\",\"17:30\"],[\"18:00\",\"18:30\"],[\"19:00\",\"19:30\"],[\"06:00\",\"06:30\"]]}},{\"2026-03-28\":{\"69b35514336bccf8fb76e253\":[[\"10:00\",\"10:30\"],[\"11:00\",\"11:30\"],[\"12:00\",\"12:30\"],[\"13:00\",\"13:30\"],[\"14:00\",\"14:30\"],[\"15:00\",\"15:30\"],[\"16:00\",\"16:30\"],[\"17:00\",\"17:30\"],[\"18:00\",\"18:30\"],[\"19:00\",\"19:30\"],[\"06:00\",\"06:30\"]]}},{\"2026-03-29\":{\"69b35514336bccf8fb76e253\":[[\"10:00\",\"10:30\"],[\"11:00\",\"11:30\"],[\"12:00\",\"12:30\"],[\"13:00\",\"13:30\"],[\"14:00\",\"14:30\"],[\"15:00\",\"15:30\"],[\"16:00\",\"16:30\"],[\"17:00\",\"17:30\"],[\"18:00\",\"18:30\"],[\"19:00\",\"19:30\"],[\"06:00\",\"06:30\"]]}},{\"2026-03-30\":{\"69b35514336bccf8fb76e253\":[[\"10:00\",\"10:30\"],[\"11:00\",\"11:30\"],[\"12:00\",\"12:30\"],[\"13:00\",\"13:30\"],[\"14:00\",\"14:30\"],[\"15:00\",\"15:30\"],[\"16:00\",\"16:30\"],[\"17:00\",\"17:30\"],[\"18:00\",\"18:30\"],[\"19:00\",\"19:30\"],[\"06:00\",\"06:30\"]]}},{\"2026-03-31\":{\"69b35514336bccf8fb76e253\":[[\"10:00\",\"10:30\"],[\"11:00\",\"11:30\"],[\"12:00\",\"12:30\"],[\"13:00\",\"13:30\"],[\"14:00\",\"14:30\"],[\"15:00\",\"15:30\"],[\"16:00\",\"16:30\"],[\"17:00\",\"17:30\"],[\"18:00\",\"18:30\"],[\"19:00\",\"19:30\"],[\"06:00\",\"06:30\"]]}}]}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 1926.976,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "DIAS DISPONIVEIS"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 832.114,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8000/agendamento",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.4.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"clienteId\": \"69b73e1f6549335941f6aeb0\",\n\t\"salaoId\": \"69a5e773ec5b8f6dcebad6b7\",\n\t\"servicoId\":\"69b04d83d1a950ebcf76ce90\",\n\t\"colaboradorId\":\"69b35514336bccf8fb76e253\",\n\t\"data\": \"2026-03-26T19:30:00Z\"\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "427"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"1ab-tbXsCabsPlWD0nJvDWiXV6xM1Hk\""
+						},
+						{
+							"name": "Date",
+							"value": "Thu, 19 Mar 2026 19:31:15 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 427,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false,\"agendamento\":{\"salaoId\":\"69a5e773ec5b8f6dcebad6b7\",\"clienteId\":\"69b73e1f6549335941f6aeb0\",\"servicoId\":\"69b04d83d1a950ebcf76ce90\",\"colaboradorId\":\"69b35514336bccf8fb76e253\",\"data\":\"2026-03-26T19:30:00.000Z\",\"valor\":50,\"comissao\":5,\"pagamento\":{\"metodo\":\"LOCAL\",\"status\":\"PENDENTE\",\"_id\":\"69bc4f03aeee5d50ddc47c08\"},\"status\":\"A\",\"_id\":\"69bc4f03aeee5d50ddc47c07\",\"dataCadastro\":\"2026-03-19T19:31:15.562Z\",\"__v\":0}}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 832.114,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "ADD"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 300.005,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8000/cliente/salao/69a5e773ec5b8f6dcebad6b7",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.4.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "309"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"135-7tRIAff4DdlN3sqXiCegLq4YLmY\""
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 15 Mar 2026 23:44:05 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 309,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false,\"clientes\":[{\"_id\":\"69b73e1f6549335941f6aeb0\",\"nome\":\"Cliente teste1 \",\"telefone\":\"46999555047\",\"email\":\"cliente@teste.com\",\"senha\":null,\"foto\":null,\"dataNascimento\":\"1997-09-13\",\"status\":\"A\",\"sexo\":\"M\",\"dataCadastro\":\"2026-03-15T23:17:51.822Z\",\"__v\":0,\"vinculoId\":\"69b73e1f6549335941f6aeb3\"}]}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 300.005,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "SL CLIENTES"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 738.838,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8000/cliente",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.4.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"cliente\": {\n\t\t\"nome\": \"Cliente teste1 \",\n\t\t\"email\": \"cliente@teste.com\",\n\t\t\"telefone\":\"46999555047\",\n\t\t\"dataNascimento\":\"1997-09-13\",\n\t\t\"sexo\":\"M\"\n\t},\n\t\"salaoId\": \"69a5e773ec5b8f6dcebad6b7\"\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "54"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"36-X9pBh0AM2r2FEha7y3mz2Q6olTg\""
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 15 Mar 2026 23:17:52 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 54,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false,\"clienteId\":\"69b73e1f6549335941f6aeb0\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 738.838,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "ADD"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 747.015,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8000/colaborador",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.4.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"salaoId\": \"69a5e773ec5b8f6dcebad6b7\",\n\t\"colaborador\": {\n\t\"nome\": \"Robson Jalin\",\n\t\"telefone\": \"46999888047\",\n\t\"email\": \"teste@colaborador.com.br\",\n\t\"foto\": \"https://i.imgflip.com/2/28vcbz.jpg\",\n\t\"dataNascimento\": \"1997-03-21\",\n\t\"sexo\": \"M\",\n\t\"vinculo\":\"A\",\n\t\"especialidades\": [\"69b04d83d1a950ebcf76ce90\"]\n\t}\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "58"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"3a-+cc3i/SGTUTXuEZhKk6D5HQuLJc\""
+						},
+						{
+							"name": "Date",
+							"value": "Fri, 13 Mar 2026 18:39:42 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 58,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false,\"colaboradorId\":\"69b35514336bccf8fb76e253\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 747.015,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "ADD"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 139.28099999999998,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8000/colaborador/filter",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.4.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"filters\": {\n\t\t\"sexo\": \"M\"\n\t}\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "311"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"137-PI87rxXI6zmtLhjntmpXyKPsq1s\""
+						},
+						{
+							"name": "Date",
+							"value": "Sat, 14 Mar 2026 22:16:13 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 311,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false,\"colaboradores\":[{\"_id\":\"69b35514336bccf8fb76e253\",\"nome\":\"Robson Jalin\",\"telefone\":\"46999888047\",\"email\":\"teste@colaborador.com.br\",\"senha\":null,\"foto\":\"https://i.imgflip.com/2/28vcbz.jpg\",\"dataNascimento\":\"1997-03-21\",\"status\":\"A\",\"sexo\":\"M\",\"dataCadastro\":\"2026-03-13T00:06:44.975Z\",\"__v\":0}]}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 139.28099999999998,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "FILTER"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 453.093,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8000/colaborador/salao/69a5e773ec5b8f6dcebad6b7",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.4.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "730"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"2da-awzbRhmHoaUoPzLpxyk+pO8Elr8\""
+						},
+						{
+							"name": "Date",
+							"value": "Sat, 14 Mar 2026 22:40:06 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 730,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false,\"colaboradores\":[{\"_id\":\"69b35514336bccf8fb76e253\",\"nome\":\"Robson Jalin\",\"telefone\":\"46999888047\",\"email\":\"teste@colaborador.com.br\",\"foto\":\"https://i.imgflip.com/2/28vcbz.jpg\",\"dataNascimento\":\"1997-03-21\",\"status\":\"A\",\"sexo\":\"M\",\"dataCadastro\":\"2026-03-13T00:06:45.256Z\",\"__v\":0,\"vinculoId\":\"69b35515336bccf8fb76e256\",\"vinculo\":\"A\",\"especialidades\":[{\"_id\":\"69b4a9bbdbfcce76466cd18d\",\"colaboradorId\":\"69b35514336bccf8fb76e253\",\"servicoId\":\"69b04d83d1a950ebcf76ce90\",\"status\":\"A\",\"dataCadastro\":\"2026-03-14T00:20:11.426Z\",\"__v\":0},{\"_id\":\"69b4a9bbdbfcce76466cd18e\",\"colaboradorId\":\"69b35514336bccf8fb76e253\",\"servicoId\":\"69b4a88c6a0a5a70d6520854\",\"status\":\"A\",\"dataCadastro\":\"2026-03-14T00:20:11.426Z\",\"__v\":0}]}]}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 453.093,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "SALAO COLABORADORES"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 467.89,
+				"request": {
+					"method": "PUT",
+					"url": "http://localhost:8000/colaborador/69b35514336bccf8fb76e253",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.4.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"vinculo\": \"I\",\n\t\"vinculoId\":\"69b35515336bccf8fb76e256\",\n\t\"especialidades\": [\"69b04d83d1a950ebcf76ce90\",\n\t\"69b4a88c6a0a5a70d6520854\"]\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "15"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"f-vq7iR8edCWsBmYr0817vqlEnUMY\""
+						},
+						{
+							"name": "Date",
+							"value": "Sat, 14 Mar 2026 00:20:11 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 15,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 467.89,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "UPDATE"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 167.427,
+				"request": {
+					"method": "DELETE",
+					"url": "http://localhost:8000/colaborador/vinculo/69b35515336bccf8fb76e256",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.4.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "15"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"f-vq7iR8edCWsBmYr0817vqlEnUMY\""
+						},
+						{
+							"name": "Date",
+							"value": "Sat, 14 Mar 2026 00:26:28 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 15,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 167.427,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "DELETE VINCULO"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 190.31699999999998,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8000/horario",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.4.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"salaoId\": \"69a5e773ec5b8f6dcebad6b7\",\n \t\"especialidades\": [\"69b04d83d1a950ebcf76ce90\"],\n \t\"colaboradores\": [\"69b35514336bccf8fb76e253\"],\n \t\"dias\":[0,1,2],\n \t\"inicio\":\"2026-03-07T10:00\",\n  \"fim\": \"2026-03-07T20:00\"\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "309"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"135-/NNeyJanC803IiLPH8IGXPtLQ4o\""
+						},
+						{
+							"name": "Date",
+							"value": "Sat, 14 Mar 2026 23:26:35 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 309,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"horario\":{\"salaoId\":\"69a5e773ec5b8f6dcebad6b7\",\"especialidaddes\":[\"69b04d83d1a950ebcf76ce90\"],\"colaboradores\":[\"69b35514336bccf8fb76e253\"],\"dias\":[0,1,2],\"inicio\":\"2026-03-01T13:00:00.000Z\",\"fim\":\"2026-03-01T23:00:00.000Z\",\"_id\":\"69b5eeab0246c5cc2d3ddbf7\",\"dataCadastro\":\"2026-03-14T23:26:35.436Z\",\"__v\":0}}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 190.31699999999998,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "ADD"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 322.81399999999996,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8000/horario/colaboradores",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.4.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n \t\"especialidades\": [\"69b04d83d1a950ebcf76ce90\"]\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "98"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"62-9Uyhdc5xpiIj2ZOxo3RRv0eE5Ww\""
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 15 Mar 2026 01:52:17 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 98,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false,\"listaColaboradores\":[{\"label\":\"Robson Jalin\",\"value\":\"69b35514336bccf8fb76e253\"}]}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 322.81399999999996,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "COLABORADORES"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 1424.7479999999998,
+				"request": {
+					"method": "PUT",
+					"url": "http://localhost:8000/horario/69b5eeab0246c5cc2d3ddbf7",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.4.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"dias\":[0,1,2,6]\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "15"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"f-vq7iR8edCWsBmYr0817vqlEnUMY\""
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 15 Mar 2026 01:22:35 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 15,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 1424.7479999999998,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "UPDATE"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 182.53900000000002,
+				"request": {
+					"method": "DELETE",
+					"url": "http://localhost:8000/horario/69b60a656e3eb765aa416e96",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.4.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "15"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"f-vq7iR8edCWsBmYr0817vqlEnUMY\""
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 15 Mar 2026 01:27:26 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 15,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 182.53900000000002,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "DELETE"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 149.093,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8000/horario/salao/69a5e773ec5b8f6dcebad6b7",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.4.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "312"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"138-kcWpywXaQe8BFYGvh2MBDN+n4JM\""
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 15 Mar 2026 01:18:45 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 312,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"horarios\":[{\"_id\":\"69b5eeab0246c5cc2d3ddbf7\",\"salaoId\":\"69a5e773ec5b8f6dcebad6b7\",\"especialidaddes\":[\"69b04d83d1a950ebcf76ce90\"],\"colaboradores\":[\"69b35514336bccf8fb76e253\"],\"dias\":[0,1,2],\"inicio\":\"2026-03-01T13:00:00.000Z\",\"fim\":\"2026-03-01T23:00:00.000Z\",\"dataCadastro\":\"2026-03-14T23:26:35.436Z\",\"__v\":0}]}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 149.093,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "HORARIOS DO SALAO"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 152.65,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8000/salao/69a5e773ec5b8f6dcebad6b7",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "237"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"ed-GjyZ45teqjBrJRzdoXY6yc8EXwI\""
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 10 Mar 2026 23:16:58 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 237,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false,\"salao\":{\"geo\":{\"coordinates\":[-53.0519,-25.7483]},\"_id\":\"69a5e773ec5b8f6dcebad6b7\",\"nome\":\"Salao Ideal\",\"capa\":\"https://th.bing.com/th/id/OIP.olFqgEusmI0SisDJs7DMyAHaHa?w=186&h=187&c=7&r=0&o=7&pid=1.7&rm=3\"},\"distance\":0}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 152.65,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "GET"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 173.45,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8000/salao/servicos/69a5e773ec5b8f6dcebad6b7",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "84"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"54-XmS4hzQACBbkWdCRy77FZWhvEao\""
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 10 Mar 2026 20:07:18 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 84,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"servicos\":[{\"label\":\"Servico teste alterado\",\"value\":\"69b04d83d1a950ebcf76ce90\"}]}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 173.45,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "SERVICOS"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 167.912,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8000/salao",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"nome\": \"Salao Ideal\",\n\t\"foto\": \n\t\"https://th.bing.com/th/id/OIP.nI-AYaRavnalh7qWPW9zhQHaHa?w=186&h=187&c=7&r=0&o=7&pid=1.7&rm=3\",\n\t\"capa\": \"https://th.bing.com/th/id/OIP.olFqgEusmI0SisDJs7DMyAHaHa?w=186&h=187&c=7&r=0&o=7&pid=1.7&rm=3\",\n\t\"email\": \"emailteste.com\",\n\t\"senha\": \"123\"\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "360"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"168-f7GLHfdYf5ObD4qSHAVEGU/7TVk\""
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 02 Mar 2026 19:39:31 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 360,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"salao\":{\"nome\":\"Salao Ideal\",\"foto\":\"https://th.bing.com/th/id/OIP.nI-AYaRavnalh7qWPW9zhQHaHa?w=186&h=187&c=7&r=0&o=7&pid=1.7&rm=3\",\"capa\":\"https://th.bing.com/th/id/OIP.olFqgEusmI0SisDJs7DMyAHaHa?w=186&h=187&c=7&r=0&o=7&pid=1.7&rm=3\",\"email\":\"emailteste.com\",\"senha\":\"123\",\"_id\":\"69a5e773ec5b8f6dcebad6b7\",\"dataCadastro\":\"2026-03-02T19:39:31.446Z\",\"__v\":0}}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 167.912,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "ADD"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 1845.451,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8000/servico",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "multipart/form-data"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.3.1"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "multipart/form-data",
+						"params": [
+							{
+								"name": "salaoId",
+								"value": "69a5e773ec5b8f6dcebad6b7"
+							},
+							{
+								"name": "servico",
+								"value": " {\n\t \"salaoId\": \"69a5e773ec5b8f6dcebad6b7\",\n\t \"titulo\": \"Servico teste\",\n\t \"preco\": 20 ,\n\t \"comissao\": 10,\n\t \"duracao\": 30,\n\t \"recorrencia\": 30,\n\t \"descricao\": \"Descricao teste\"\n }"
+							},
+							{
+								"name": "files",
+								"fileName": "C:\\Users\\herla\\RESERVO_TRABALHO_FINAL\\Files_ELPEPE\\baixados.jpg"
+							},
+							{
+								"name": "files",
+								"fileName": "C:\\Users\\herla\\RESERVO_TRABALHO_FINAL\\Files_ELPEPE\\Fennec_ rocket league.jpg"
+							},
+							{
+								"name": "",
+								"value": ""
+							}
+						]
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "523"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"20b-3bRnYILfUARwts727p8AB02gSEQ\""
+						},
+						{
+							"name": "Date",
+							"value": "Thu, 19 Mar 2026 19:45:13 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 523,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"servico\":{\"salaoId\":\"69a5e773ec5b8f6dcebad6b7\",\"titulo\":\"Servico teste\",\"preco\":20,\"comissao\":10,\"duracao\":30,\"recorrencia\":30,\"descricao\":\"Descricao teste\",\"status\":\"A\",\"_id\":\"69bc5249a3f4ac10abaaa88b\",\"dataCadastro\":\"2026-03-19T19:45:13.629Z\",\"__v\":0},\"arquivos\":[{\"referenciaId\":\"69bc5249a3f4ac10abaaa88b\",\"model\":\"Servico\",\"caminho\":\"servicos/69a5e773ec5b8f6dcebad6b7/d1773949512094.jpg\"},{\"referenciaId\":\"69bc5249a3f4ac10abaaa88b\",\"model\":\"Servico\",\"caminho\":\"servicos/69a5e773ec5b8f6dcebad6b7/d1773949512956.jpg\"}]}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 1845.451,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "ADD/SERVICO"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 1037.056,
+				"request": {
+					"method": "PUT",
+					"url": "http://localhost:8000/servico/69b04d83d1a950ebcf76ce90",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "multipart/form-data"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.3.1"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "multipart/form-data",
+						"params": [
+							{
+								"name": "salaoId",
+								"value": "69a5e773ec5b8f6dcebad6b7"
+							},
+							{
+								"name": "servico",
+								"value": " {\n\t \"titulo\": \"Servico teste alterado\",\n\t \"preco\": 50\n }"
+							},
+							{
+								"name": "files",
+								"fileName": "C:\\Users\\herla\\RESERVO_TRABALHO_FINAL\\Files_ELPEPE\\sigma.jpg"
+							}
+						]
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "405"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"195-LuGQiuqho9QJJvgOuu/BM4M3NRc\""
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 10 Mar 2026 17:46:19 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 405,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"servico\":{\"_id\":\"69b04d83d1a950ebcf76ce90\",\"salaoId\":\"69a5e773ec5b8f6dcebad6b7\",\"titulo\":\"Servico teste alterado\",\"preco\":50,\"comissao\":10,\"duracao\":30,\"recorrencia\":30,\"descricao\":\"Descricao teste\",\"status\":\"A\",\"dataCadastro\":\"2026-03-10T16:57:39.033Z\",\"__v\":0},\"arquivos\":[{\"referenciaId\":\"69b04d83d1a950ebcf76ce90\",\"model\":\"Servico\",\"caminho\":\"servicos/69a5e773ec5b8f6dcebad6b7/d1773164778275.jpg\"}]}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 1037.056,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "UPDATE/SERVICO"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 686.048,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8000/servico/delete-arquivo",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.3.1"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"id\": \"servicos/69a5e773ec5b8f6dcebad6b7/d1773161857427.jpg\"\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "15"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"f-vq7iR8edCWsBmYr0817vqlEnUMY\""
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 10 Mar 2026 19:38:46 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 15,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 686.048,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "DELETE FILE (S3)"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 168.92,
+				"request": {
+					"method": "DELETE",
+					"url": "http://localhost:8000/servico/69b04d83d1a950ebcf76ce90",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.3.1"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "15"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"f-vq7iR8edCWsBmYr0817vqlEnUMY\""
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 10 Mar 2026 19:46:43 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 15,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"error\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 168.92,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "DELETE"
+			},
+			{
+				"startedDateTime": "2026-03-27T00:36:09.185Z",
+				"time": 419.478,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8000/servico/salao/69a5e773ec5b8f6dcebad6b7",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.3.1"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "1008"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"3f0-T9/Z6XgqUkk0oXF/MUMLX8ts7t8\""
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 18 Mar 2026 00:09:20 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 1008,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "{\"servicos\":[{\"_id\":\"69b04d83d1a950ebcf76ce90\",\"salaoId\":\"69a5e773ec5b8f6dcebad6b7\",\"titulo\":\"Servico teste alterado\",\"preco\":50,\"comissao\":10,\"duracao\":\"2026-03-05T04:30:26.398Z\",\"recorrencia\":30,\"descricao\":\"Descricao teste\",\"status\":\"A\",\"dataCadastro\":\"2026-03-10T16:57:39.033Z\",\"__v\":0,\"arquivos\":[{\"_id\":\"69b04d83d1a950ebcf76ce93\",\"referenciaId\":\"69b04d83d1a950ebcf76ce90\",\"model\":\"Servico\",\"caminho\":\"servicos/69a5e773ec5b8f6dcebad6b7/d1773161858293.jpg\",\"dataCadastro\":\"2026-03-10T16:57:39.173Z\",\"__v\":0},{\"_id\":\"69b058ebb37d9b130b86ff6a\",\"referenciaId\":\"69b04d83d1a950ebcf76ce90\",\"model\":\"Servico\",\"caminho\":\"servicos/69a5e773ec5b8f6dcebad6b7/d1773164778275.jpg\",\"dataCadastro\":\"2026-03-10T17:46:19.154Z\",\"__v\":0}]},{\"_id\":\"69b4a88c6a0a5a70d6520854\",\"salaoId\":\"69a5e773ec5b8f6dcebad6b7\",\"titulo\":\"Outro Servico\",\"preco\":50,\"comissao\":10,\"duracao\":\"2026-03-05T00:30:26.398Z\",\"recorrencia\":30,\"descricao\":\"Descricao teste\",\"status\":\"A\",\"dataCadastro\":\"2026-03-10T16:57:39.033Z\",\"__v\":0,\"arquivos\":[]}]}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 419.478,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "SALAO"
+			}
+		]
+	}
+}

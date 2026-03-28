@@ -5,7 +5,7 @@ const Sidebar = () => {
     const location = useLocation();
     return (
         <sidebar className = 'col-2 h-100'>
-            <img src={logo} className = 'img-fluid px-3 py-4'/>
+            <img src={logo} className = 'img-fluid px-3 py-4' alt='logo do sistema'/>
             <ul className='p-0 m-0'>
                 <li>    
                      <Link to='/' className={location.pathname === '/' ? 'active' : ''}>
