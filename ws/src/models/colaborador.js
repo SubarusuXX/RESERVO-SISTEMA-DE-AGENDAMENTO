@@ -20,7 +20,6 @@ senha: {
 },
 foto: {
     type: String,
-    required: true,
 },
 dataNascimento: {
     type: String,

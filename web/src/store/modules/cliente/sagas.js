@@ -1,5 +1,5 @@
-import { takeLatest, all, call, put, select} from 'redux-saga/effects'
-import {updateCliente} from './actions'
+import { takeLatest, all, call, put, select, take} from 'redux-saga/effects'
+import {updateCliente, allClientes as AllclientesAction, resetCliente} from './actions'
 import types from './types'
 import api from '../../../services/api'
 import consts from '../../../consts'
@@ -57,20 +57,82 @@ export function* filterClientes () {
         if (res.clientes.length > 0) {
             yield put(updateCliente({
                 cliente: res.clientes[0],
-                 form: {...form, disable: true}}))
+                 form: {...form, disabled: true}}))
         } else {
-            yield put(updateCliente({ form: {...form, disable: false}}))
+            yield put(updateCliente({ form: {...form, disabled: false}}))
         }
 
 
         yield put(updateCliente({ clientes: res.clientes}))
     }   catch (err) {
-        yield put(updateCliente({ form: {...form, filtering: false}}))
+        yield put(updateCliente({ form: {...form, filtering: false, disabled: true} }))
 
         alert(err.message);
     }
 } 
+
+export function* addCliente () {
+
+    const { form, cliente, components } =  yield select((state) => state.cliente)
+
+    try{
+        yield put(updateCliente({ form: {...form, saving: true} }))
+        const { data: res} = yield call (api.post, `/cliente`, {
+            salaoId: consts.salaoId,
+            cliente 
+        });
+
+            yield put(updateCliente({ form: {...form, saving: false}}))
+
+        if (res.error){
+            alert(res.message);
+            return false
+        }
+
+        yield put(AllclientesAction())
+        yield put(updateCliente({ components: {...components, drawer: false, confirmDelete: false}}))
+        yield put(resetCliente())
+
+    }   catch (err) {
+        yield put(updateCliente({ form: {...form, saving: false}}))
+
+        alert(err.message);
+    }
+} 
+
+export function* unlinkCliente () {
+
+    const { form, cliente, components } =  yield select((state) => state.cliente)
+
+    try{
+        yield put(updateCliente({ form: {...form, saving: true} }))
+        const { data : res} = yield call (
+            api.delete, `/cliente/vinculo/${cliente.vinculoId}`);
+
+            yield put(updateCliente({ 
+                form: {...form, saving: false},
+                components: {...components, confirmDelete: false}
+            })
+        )
+
+        if (res.error){
+            alert(res.message);
+            return false
+        }
+
+        yield put(AllclientesAction())
+        yield put(updateCliente({ components: {...components, drawer: false, confirmDelete: false}}))
+        yield put(resetCliente())
+    }   catch (err) {
+        yield put(updateCliente({ form: {...form, saving: false}}))
+        alert(err.message);
+    }
+} 
+
+
 export default all ([
     takeLatest(types.ALL_CLIENTES, allClientes),
-    takeLatest (types.FILTER_CLIENTES, filterClientes)
+    takeLatest (types.FILTER_CLIENTES, filterClientes),
+    takeLatest (types.ADD_CLIENTE, addCliente),
+    takeLatest (types.UNLINK_CLIENTE, unlinkCliente),
 ])

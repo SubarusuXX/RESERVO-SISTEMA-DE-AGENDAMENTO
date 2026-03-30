@@ -117,15 +117,21 @@ router.get('/salao/:salaoId', async (req, res) => {
       .select('clienteId dataCadastro');
 
 
-      res.json({
-        error:false,
-        clientes: clientes.map((vinculo)=> ({
-          ...vinculo.clienteId._doc,
-          vinculoId: vinculo._id,
-          vinculo: vinculo.status,
-          dataCadastro: vinculo.dataCadastro,
-        })),
-      });
+     const clientesFormatados = clientes
+      .filter(vinculo => vinculo.clienteId)
+      .map((vinculo) => ({
+        ...vinculo.clienteId.toObject(),
+        vinculoId: vinculo._id,
+        vinculo: vinculo.status,
+        dataCadastro: vinculo.dataCadastro,
+      }));
+
+    return res.json({
+      error: false,
+      clientes: clientesFormatados,
+    });
+
+
   } catch (error) {
     res.json({ error: true, message: error.message });
   }

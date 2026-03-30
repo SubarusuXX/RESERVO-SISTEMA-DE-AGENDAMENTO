@@ -1,24 +1,23 @@
 import { useEffect } from "react";
-import { Button, Drawer } from "rsuite";
-import 'rsuite/dist/rsuite.min.css';
+import { Button, Drawer, Modal } from "rsuite";
+import WarningIcon from "@rsuite/icons/legacy/Warning";
+import "rsuite/dist/rsuite.min.css";
 import Table from "../../components/Table";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 import {
-    allClientes,
-    updateCliente,
-    filterClientes
+  allClientes,
+  updateCliente,
+  filterClientes,
+  addCliente,
+  unlinkCliente,
 } from "../../store/modules/cliente/actions";
-
-
-
-
 
 const Clientes = () => {
   const dispatch = useDispatch();
   const { clientes, form, cliente, behavior, components } = useSelector(
-    (state) => state.cliente
-    );
+    (state) => state.cliente,
+  );
 
   const setComponent = (component, state) => {
     dispatch(
@@ -34,11 +33,15 @@ const Clientes = () => {
         cliente: { ...cliente, [key]: value },
       }),
     );
-   }
+  };
 
-   const save = ( ) => {
-    console.log('save');
-   };
+  const save = () => {
+    dispatch(addCliente());
+  };
+
+  const remove = () => {
+    dispatch(unlinkCliente());
+  };
 
   useEffect(() => {
     dispatch(allClientes());
@@ -46,32 +49,36 @@ const Clientes = () => {
 
   return (
     <>
-      {}
       <Drawer
-        open={components.drawer}  
+        open={components.drawer}
         size="sm"
-        onClose={() => setComponent("drawer", false)}>
+        onClose={() => setComponent("drawer", false)}
+      >
         <Drawer.Body>
-            <h3>{behavior === 'create' ? 'Criar novo' : 'Atualizar'} cliente</h3>
-            <div className="row mt-3"><div className="form-group col-12 mb-3">
-                <b>E-mail</b>
-                <div className="input-group">
-                    <input type="email" 
-                    className="form-control"
-                    placeholder="E-mail do cliente" 
-                    value={cliente.email}
-                    onChange={(e) =>  setCliente('email', e.target.value)}
-                    />
-                    <div className="input-group-append">
-                        <Button appearance="primary" 
-                        loading={form.filtering} 
-                        disabled ={form.filtering} 
-                        onClick={()=>dispatch(filterClientes())}
-                        >
-                            Pesquisar
-                        </Button>
-                    </div>
+          <h3>{behavior === "create" ? "Criar novo" : "Atualizar"} cliente</h3>
+          <div className="row mt-3">
+            <div className="form-group col-12 mb-3">
+              <b>E-mail</b>
+              <div className="input-group">
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="E-mail do cliente"
+                  disabled={behavior === "update"}
+                  value={cliente.email}
+                  onChange={(e) => setCliente("email", e.target.value)}
+                />
+                <div className="input-group-append">
+                  <Button
+                    appearance="primary"
+                    loading={form.filtering}
+                    disabled={form.filtering}
+                    onClick={() => dispatch(filterClientes())}
+                  >
+                    Pesquisar
+                  </Button>
                 </div>
+              </div>
             </div>
             <div className="form-group col-6">
               <b className="">Nome</b>
@@ -79,9 +86,9 @@ const Clientes = () => {
                 type="text"
                 className="form-control"
                 placeholder="Nome do Cliente"
-                disabled={form.disabled}
+                disabled={false}
                 value={cliente.nome}
-                onChange={(e) => setCliente('nome', e.target.value)}
+                onChange={(e) => setCliente("nome", e.target.value)}
               />
             </div>
             <div className="form-group col-6">
@@ -90,9 +97,9 @@ const Clientes = () => {
                 type="text"
                 className="form-control"
                 placeholder="Telefone / Whatsapp do Cliente"
-                disabled={form.disabled}
+                disabled={false}
                 value={cliente.telefone}
-                onChange={(e) => setCliente('telefone', e.target.value)}
+                onChange={(e) => setCliente("telefone", e.target.value)}
               />
             </div>
             <div className="form-group col-6">
@@ -100,46 +107,73 @@ const Clientes = () => {
               <input
                 type="date"
                 className="form-control"
-                disabled={form.disabled}
+                disabled={false}
                 value={cliente.dataNascimento}
-                onChange={(e) => setCliente('dataNascimento', e.target.value)}
+                onChange={(e) => setCliente("dataNascimento", e.target.value)}
               />
             </div>
             <div className="form-group col-6">
               <b>Sexo</b>
               <select
-                disabled={form.disabled}
+                disabled={false}
                 className="form-control"
                 value={cliente.sexo}
-                onChange={(e) => setCliente('sexo', e.target.value)}
+                onChange={(e) => setCliente("sexo", e.target.value)}
               >
                 <option value="M">Masculino</option>
                 <option value="F">Feminino</option>
               </select>
             </div>
-        </div>
-        <Button
+          </div>
+          <Button
             block
             className="btn-lg mt-3"
-            color ={ behavior === 'create' ? 'green' : 'red'}
-            size = 'lg'
-            loading = { form.saving }
+            color={behavior === "create" ? "green" : "red"}
+            size="lg"
+            loading={form.saving}
             onClick={() => {
-                if (behavior === 'create'){
-                    save();
-                } else {
-
-                }
+              if (behavior === "create") {
+                save();
+              } else {
+                setComponent("confirmDelete", true);
+              }
             }}
-        >
-            
-            {behavior === 'create' ? 'Salvar' : 'Remover'} Cliente
-        </Button>
+          >
+            {behavior === "create" ? "Salvar" : "Remover"} Cliente
+          </Button>
         </Drawer.Body>
       </Drawer>
 
-      {/* Seu código original permanece igual */}
       <div className="col p-5 overflow-auto h-100">
+        <Modal
+          open={components.confirmDelete}
+          onClose={() => setComponent("confirmDelete", false)}
+          backdrop={true}
+          onHide={() => setComponent("confirmDelete", false)}
+          size="xs"
+        >
+          <Modal.Body>
+            <WarningIcon
+              style={{
+                color: "#ffb300",
+                fontSize: 24,
+              }}
+            />
+            {"  "} Tem certeza que deseja excluir? Essa ação será irreversível!
+          </Modal.Body>
+          <Modal.Footer>
+            <Button loading={form.saving} onClick={() => remove()} color="red">
+              Sim, tenho certeza!
+            </Button>
+            <Button
+              onClick={() => setComponent("confirmDelete", false)}
+              appearance="subtle"
+            >
+              Cancelar
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
         <div className="row">
           <div className="col-12">
             <div className="w-100 d-flex justify-content-between">
@@ -148,9 +182,18 @@ const Clientes = () => {
                 <button
                   className="btn btn-primary btn-lg"
                   onClick={() => {
-                    dispatch(updateCliente({ 
-                        behavior: "create" 
-                    }));
+                    dispatch(
+                      updateCliente({
+                        behavior: "create",
+                        cliente: {
+                          nome: "",
+                          email: "",
+                          telefone: "",
+                          dataNascimento: "",
+                          sexo: "M", // 👈 AQUI É A CORREÇÃO
+                        },
+                      }),
+                    );
                     setComponent("drawer", true);
                   }}
                 >
@@ -184,15 +227,15 @@ const Clientes = () => {
                 </Button>
               )}
               onRowClick={(cliente) => {
-                    dispatch(
-                        updateCliente({ 
-                        behavior: "update", 
-                        })
-                    );
                 dispatch(
-                    updateCliente({
-                        cliente,
-                    })
+                  updateCliente({
+                    behavior: "update",
+                  }),
+                );
+                dispatch(
+                  updateCliente({
+                    cliente,
+                  }),
                 );
                 setComponent("drawer", true);
               }}

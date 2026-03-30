@@ -10,31 +10,33 @@ import { produce } from 'immer';
     } ,
     form : {
         filtering: false,
-        disabled: true,
+        disabled: false,
         saving: false,
     },
-    clientes: [],
-    cliente: {
+    colaboradores: [],
+    colaborador: {
+    email :'',
     nome: '',
     telefone: '',
     dataNascimento: '',
-    sexo: '',
-    }
+    sexo: 'M',
+    vinculo:"A",
+	especialidades: []
     
- }
+ },}
+    
 
- function cliente(state = INITIAL_STATE,action) {
+ function colaborador(state = INITIAL_STATE,action) {
     switch(action.type){
-        case types.UPDATE_CLIENTE: {
+        case types.UPDATE_COLABORADOR: {
             return produce(state, (draft) => {
-                draft ={ ...draft, ...action.payload }
-                return draft;
-            })
+                Object.assign(draft, action.payload);
+            });
         }
 
-        case types.RESET_CLIENTE: {
+        case types.RESET_COLABORADOR: {
             return produce(state, (draft) => {
-                draft.cliente =INITIAL_STATE.cliente;
+                draft.colaborador =INITIAL_STATE.colaborador;
                 return draft;
             })
         }
@@ -43,4 +45,4 @@ import { produce } from 'immer';
     }
  }
  
- export default cliente;
+ export default colaborador;

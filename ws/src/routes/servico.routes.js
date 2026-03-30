@@ -169,20 +169,19 @@ router.put('/:id', upload.array("files"), async (req, res) => {
 
 });
 
-
 // Rota para DELETAR um arquivo
 router.post('/delete-arquivo', async (req, res) => {
 
   try {
 
-    const { id } = req.body;
+    const { key} = req.body;
 
     // deleta do S3
-    await aws.deleteFileS3(id);
+    await aws.deleteFileS3(key);
 
     // deleta do MongoDB
     await Arquivo.deleteOne({
-      caminho: id
+      caminho: key
     });
 
     res.json({ error: false });
@@ -198,7 +197,7 @@ router.post('/delete-arquivo', async (req, res) => {
 
 });
 
-
+// Rota para LISTAR os serviços de um salão
 router.get('/:salao/:salaoId', async (req, res) => {
 
   try {

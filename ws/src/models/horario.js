@@ -25,14 +25,14 @@ const horario = new Schema({
     type: [Number],
     required: true,
  },
- inicio:{
-    type: Date,
-    required: true,
- },
-  fim:{
-    type: Date,
-    required: true,
- },
+ inicio: {
+   type: String,
+   required: true,
+},
+fim: {
+   type: String,
+   required: true,
+},
 dataCadastro: {
     type: Date,
     default: Date.now,

@@ -7,6 +7,11 @@ import Sidebar from "./components/Sidebar";
 
 import Agendamentos from './pages/Agendamentos';
 import Clientes from './pages/Clientes';
+import Colaboradores from './pages/Colaboradores';
+import Servicos from './pages/Servicos';
+import Horarios from './pages/Horarios';
+
+
 
 const AppRoutes = () => {
   return (
@@ -19,6 +24,10 @@ const AppRoutes = () => {
           <Routes>
             <Route path="/" exact element={<Agendamentos />} />
             <Route path="/clientes"exact element={<Clientes />} />
+            <Route path="/colaboradores"exact element={<Colaboradores />} />
+            <Route path="/servicos"exact element={<Servicos />} />
+            <Route path="/horarios"exact element={<Horarios />} />
+
           </Routes>
           </Router>
         </div>

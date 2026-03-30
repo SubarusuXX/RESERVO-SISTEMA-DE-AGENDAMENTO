@@ -19,6 +19,31 @@ const Sidebar = () => {
                     <text>Clientes</text>
                     </Link>
                 </li>
+                <li>
+                    <Link to='/colaboradores' 
+                    className={location.pathname === '/colaboradores' ? 'active' : ''}
+                    >
+                    <span className='mdi mdi-card-account-details-outline'></span>
+                    <text>Colaboradores</text>
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/servicos' 
+                    className={location.pathname === '/servicos' ? 'active' : ''}
+                    >
+                    <span className='mdi mdi-auto-fix'></span>
+                    <text>Serviços</text>
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/horarios' 
+                    className={location.pathname === '/horarios' ? 'active' : ''}
+                    >
+                    <span className='mdi mdi-clock-check-outline'></span>
+                    <text>Horários</text>
+                    </Link>
+                </li>
+                
             </ul>
         </sidebar>
     );

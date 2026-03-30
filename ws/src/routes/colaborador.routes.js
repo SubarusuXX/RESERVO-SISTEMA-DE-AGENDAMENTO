@@ -98,7 +98,7 @@ router.post('/', async (req, res) => {
     session.endSession();
 
     res.json({
-      error: true,
+      error: false,
       colaboradorId
     });
 
@@ -184,11 +184,13 @@ router.get('/salao/:salaoId', async (req, res) => {
       for(let vinculo of salaoColaboradores) {
         const especialidades = await ColaboradorServico.find({
           colaboradorId: vinculo.colaboradorId._id,
-        });
+        })
 
         listaColaboradores.push({
           ...vinculo._doc,
-            especialidades,
+            especialidades: especialidades.map(
+              (especialidades) =>  especialidades.servicoId._id,
+            )
         });
       }
       res.json({
